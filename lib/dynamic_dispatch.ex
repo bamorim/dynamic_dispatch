@@ -19,17 +19,8 @@ defmodule DynamicDispatch do
       mod,
       quote do
         @behaviour unquote(behaviour)
-      end
-    )
 
-    impl_count = (Module.get_attribute(mod, :__dynamic_dispatch_count__) || 0) + 1
-    Module.put_attribute(mod, :__dynamic_dispatch_count__, impl_count)
-    impl_name = :"__dynamic_dispatch_impl_#{impl_count}__"
-
-    Module.eval_quoted(
-      mod,
-      quote do
-        defp unquote(impl_name)() do
+        defp __dynamic_dispatch_impl__ do
           unquote(impl)
         end
       end
@@ -43,7 +34,7 @@ defmodule DynamicDispatch do
         quote do
           @impl unquote(behaviour)
           def unquote(fun)(unquote_splicing(args)) do
-            unquote(impl_name)().unquote(fun)(unquote_splicing(args))
+            __dynamic_dispatch_impl__().unquote(fun)(unquote_splicing(args))
           end
         end
       )
