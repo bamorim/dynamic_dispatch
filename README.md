@@ -28,8 +28,8 @@ Mox.defmock(MyApp.Repo.MockedImpl, for: Ecto.Repo)
 Application.put_env(:my_app, :repo, MyApp.Repo.MockedImpl)
 ```
 
-Now, all calls to `MyApp.Repo` will be dispatched to `MyApp.Repo.MockedImpl` and you can do your
-`Mox.expect`/`Mox.stub` as usual.
+Now, all calls defined by `Ecto.Repo` behaviour sent to `MyApp.Repo` will be dispatched to
+`MyApp.Repo.MockedImpl` and you can do your `Mox.expect`/`Mox.stub` as usual.
 
 ## Installation
 
