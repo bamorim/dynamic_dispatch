@@ -4,8 +4,8 @@ defmodule DynamicDispatch do
   """
 
   defmacro __using__(args \\ []) do
-    impl_ast = Keyword.get(args, :to)
-    behaviour = Keyword.get(args, :for)
+    impl_ast = Keyword.get(args, :to) || raise "You must provide a :to implementation"
+    behaviour = Keyword.get(args, :for) || raise "You provide a :for behaviour"
 
     impl = Macro.escape(impl_ast)
 
