@@ -56,7 +56,7 @@ dialyzer happy, but it required a lot of boilerplate so we came up with this ide
 
 So the main credits here are:
 
-- @aaronrenner for the talk
-- @polvalete for the macro
+- [Aaron Renner](https://github.com/aaronrenner) for the talk
+- [Paulo Valente](https://github.com/polvalente) for the macro idea
 
 [Mox]: https://github.com/plataformatec/mox
