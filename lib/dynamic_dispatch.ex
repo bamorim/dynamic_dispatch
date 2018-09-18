@@ -29,7 +29,7 @@ defmodule DynamicDispatch do
     Module.eval_quoted(
       mod,
       quote do
-        def unquote(impl_name)() do
+        defp unquote(impl_name)() do
           unquote(impl)
         end
       end
