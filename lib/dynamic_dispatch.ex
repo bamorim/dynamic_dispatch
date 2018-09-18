@@ -41,6 +41,7 @@ defmodule DynamicDispatch do
       Module.eval_quoted(
         mod,
         quote do
+          @impl unquote(behaviour)
           def unquote(fun)(unquote_splicing(args)) do
             unquote(impl_name)().unquote(fun)(unquote_splicing(args))
           end
