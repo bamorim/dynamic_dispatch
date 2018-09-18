@@ -45,3 +45,16 @@ end
 
 Documentation can be found at
 [https://hexdocs.pm/dynamic_dispatch](https://hexdocs.pm/dynamic_dispatch).
+
+## Credits
+
+This lib was inspired by [this talk from Aaron Renner](https://www.youtube.com/watch?v=Ue--hvFzr0o).
+
+We were already doing some kind of dynamic dispatching but we were having some problems with
+dialyzer, this talk however, gave us some ideas on how to do Dynamic Dispatching while keeping
+dialyzer happy, but it required a lot of boilerplate so we came up with this idea.
+
+So the main credits here are:
+
+- @aaronrenner for the talk
+- @polvalete for the macro idea
